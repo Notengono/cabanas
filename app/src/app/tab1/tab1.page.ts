@@ -1,3 +1,5 @@
+// https://devdactic.com/ionic-5-calendar-modal/
+// https://www.youtube.com/watch?v=_hVdPEmbwA0
 import { Component, ViewChild } from "@angular/core";
 import { CalendarComponent } from "ionic2-calendar";
 
