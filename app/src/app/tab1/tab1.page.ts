@@ -119,6 +119,7 @@ export class Tab1Page {
         );
 
         events.push({
+            ident: "1",
             title: "Alquiler - 1",
             startTime: startTime,
             endTime: endTime,
@@ -127,6 +128,9 @@ export class Tab1Page {
         this.eventSource = events;
     }
 
+    onEventSelected(evento) {
+        console.log(evento)
+    }
     removeEvents() {
         this.eventSource = [];
     }
