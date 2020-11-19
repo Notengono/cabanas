@@ -9,6 +9,10 @@ const routes: Routes = [
   {
     path: 'tab4',
     loadChildren: () => import('./tab4/tab4.module').then( m => m.Tab4PageModule)
+  },
+  {
+    path: 'nueva-reserva-modal',
+    loadChildren: () => import('./pages/nueva-reserva-modal/nueva-reserva-modal.module').then( m => m.NuevaReservaModalPageModule)
   }
 ];
 @NgModule({

@@ -60,14 +60,29 @@
     </ion-col>
   </ion-row>
 
-  <calendar 
-  [eventSource]="eventSource" 
-  [calendarMode]="calendar.mode" 
-  [currentDate]="calendar.courrentDate"
-  (onEventSelected)="onEventSelected($event)"
-  (onTitleChanged)="onViewTitleChanged($event)">
-
+  <calendar [eventSource]="eventSource" [calendarMode]="calendar.mode" [currentDate]="calendar.courrentDate"
+    (onEventSelected)="onEventSelected($event)" (onTitleChanged)="onViewTitleChanged($event)"
+    [monthviewDisplayEventTemplate]="tincho" [monthviewEventDetailTemplate]="Tincho1">
   </calendar>
 
-  <!-- <app-explore-container name="Tab 1 "></app-explore-container> -->
+  <ng-template #Tincho1 let-showEventDetail="showEventDetail" let-selectedDate="selectedDate"
+    let-noEventsLabel="noEventsLabel">
+    <ion-item *ngFor="let event of selectedDate?.events">
+      Inquilino: {{event.title}}
+      <br>
+      Entrada: {{event.startTime | date:'dd/MM/yyyy HH:mm'}}
+      <br>
+      Salida: {{event.endTime | date:'dd/MM/yyyy HH:mm'}}
+    </ion-item>
+  </ng-template>
+
+  <ng-template #tincho let-view="view" let-row="row" let-col="col">
+    <div [class.with-event]="view.dates[row*7+col].events.length">
+      {{view.dates[row*7+col].label}}
+      <div class="indicator-container">
+        <div class="event-indicator" *ngFor="let e of view.dates[row*7+col].events"></div>
+      </div>
+    </div>
+  </ng-template>
+
 </ion-content>

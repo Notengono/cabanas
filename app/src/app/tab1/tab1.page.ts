@@ -20,6 +20,7 @@ export class Tab1Page {
         mode: "month",
         currentDate: new Date(),
     };
+
     @ViewChild(CalendarComponent) myCal: CalendarComponent;
 
     constructor() {}
@@ -120,7 +121,32 @@ export class Tab1Page {
 
         events.push({
             ident: "1",
-            title: "Alquiler - 1",
+            title: "Aquiles",
+            startTime: startTime,
+            endTime: endTime,
+            allDay: false,
+        });
+
+        startTime = new Date(
+            date.getFullYear(),
+            date.getMonth(),
+            date.getDate()+4,
+            13, 0, 0            
+            );
+
+            console.log(startTime)
+            console.log(date.getMinutes())
+
+        endTime = new Date(
+            date.getFullYear(),
+            date.getMonth(),
+            date.getDate() + 6,
+            10
+        );
+
+        events.push({
+            ident: "1",
+            title: "Lestrap",
             startTime: startTime,
             endTime: endTime,
             allDay: false,
@@ -131,6 +157,7 @@ export class Tab1Page {
     onEventSelected(evento) {
         console.log(evento)
     }
+
     removeEvents() {
         this.eventSource = [];
     }
